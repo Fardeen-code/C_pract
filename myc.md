@@ -80,6 +80,84 @@ any single statement or group of statements enclosed withing the curly braces ar
     statement2;
     // more statements
 }
+/*perfect_square problem*/
+#include<stdio.h>
+void main(){
+        int n;
+        printf("enter the number:");
+        scanf("%d",&n);
+        int fla=0;
+        if(n==1){
+                printf("\nit is a perfect square\n");
+        }
+        else{
+                for(int i=2;i<=n/2;i++){
+                        if(i*i==n){
+                                printf("\nit is the perfect square");
+                                fla=1;
+                        }
+                }
+                if(fla==0){
+                        printf("\nit is not a perfect square");
+                }
+        }
+}
+
+/*sum of rows and columns in an 2d array problem*/
+#include<stdio.h>
+int rsum(int a[][100],int i,int j);
+void printing(int a[][100],int n,int m);
+int csum(int a[][100],int i,int j);
+void printing(int a[][100],int n,int m){
+        for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++){
+                        printf("%d\t",a[i][j]);
+                }
+                printf("\n");
+        }
+}
+
+int rsum(int a[][100],int i,int j){
+        int sum=0;
+        for(int k=0;k<=j;k++){
+                sum=sum+a[i][k];
+        }
+        return sum;
+}
+int csum(int a[][100],int i,int j){
+        int sum=0;
+        for(int k=0;k<=i;k++){
+                sum=sum+a[k][j];
+        }
+        return sum;
+}
+
+void main(){
+        int n,m;
+        int a[100][100];
+        printf("enter the rows and columns of the matrix:");
+        scanf("%d %d",&n,&m);
+        printf("\nenter the matrix:\n");
+        for(int i=0;i<n;i++){
+                for(int j=0;j<m;j++){
+                        scanf("%d",&a[i][j]);
+                }
+        }
+        for(int i=0;i<n;i++){
+                a[i][m]=rsum(a,i,m-1);
+        }
+        for(int i=0;i<=m;i++){
+                a[n][i]=csum(a,n-1,i);
+        }
+        printing(a,n+1,m+1);
+}
+output 
+1       2       3       6
+4       5       6       15
+7       8       9       24
+12      15      18      45
+
+
 /*comma operator*/
 This opertor permits different expressions to appear in situations where only single expression is used,This expressions are sepearated using comma operator
 sum=(a=1,b=2,c=3,a+b+c);
