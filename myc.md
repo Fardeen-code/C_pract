@@ -190,4 +190,19 @@ functions are of two types they are:
 1. Library Functions
 2. User defined Functions
 library functions are such as <stdio.h>,<math.h>,<string.h>
+/*sortings in c*/
+//*Bubble Sort*//
+The idea of bubble sort is to swap the adjacent if they are in wrong order
+void bubble_sort(int arr[],int n){
+        int temp;
+        for(int i=0;i<n;i++){
+                for(int j=0;j<n-1-i;j++){
+                        if(arr[j]>arr[j+1]){
+                                temp=arr[j];
+                                arr[j]=arr[j+1];
+                                arr[j+1]=temp;
+                        }
+                }
+        }
+}
 
