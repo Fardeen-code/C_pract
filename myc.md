@@ -205,4 +205,109 @@ void bubble_sort(int arr[],int n){
                 }
         }
 }
+//*selection sort*//
+The idea of this sortings is that repeatedly finding the minimum element and place it at the beginning
+void selection_sort(int arr[],int n){
+        int min,temp;
+        for(int i=0;i<n-1;i++){
+                min=i;
+                for(int j=i+1;j<n;j++){
+                        if(arr[min]>arr[j]){
+                                min=j;
+                        }
+                }
+                temp=arr[min];
+                arr[min]=arr[i];
+                arr[i]=temp;
+        }
+}
+//*insertion sort*//
+build a sorted array one element at a time by inserting elements in a correct position
+void insertion_sort(int a[],int n){
+        int key,j;
+        for(int i=1;i<n;i++){
+                key=a[i];
+                j=i-1;
+                while(j>=0 && a[j]>key){
+                        a[j+1]=a[j];
+                        j--;
+                }
+                a[j+1]=key;
+        }
+}
+//*merge sort*//
+Divide the array into halves, sort recursively, then merge.
+void merge_sort(int a[],int l,int r){
+        if(l<r){
+                int m=(l+r)/2;
+                merge_sort(a,l,m);
+                merge_sort(a,m+1,r);
+                merge(a,l,m,r);
+        }
+}
+void merge(int a[],int l,int m,int r){
+        int n1=m-l+1;
+        int n2=r-m;
+        int left[n1],right[n2];
+        for(int i=0;i<n1;i++){
+                left[i]=a[l+i];
+        }
+        for(int i=0;i<n2;i++){
+                right[i]=a[m+i+1];
+        }
+        int i=0,j=0,k=l;
+        while(i<n1 && j<n2){
+                if(left[i]<right[j]){
+                        a[k]=left[i];
+                        k++;
+                        i++;
+                }
+                else{
+                        a[k]=right[j];
+                        k++;
+                        j++;
+                }
+        }
+        while(i<n1){
+                a[k]=left[i];
+                k++;
+                i++;
+        }
+        while(j<n2){
+                a[k]=right[j];
+                k++;
+                j++;
+        }
+}
 
+//*quick sort*//
+ Pick a pivot and partition the array such that elements smaller than pivot come before, and larger after.
+void
+//*pointers*//
+int a=10,b=20;
+the value must be assigned before the pointer
+int *p=&a;
+ig *p=b then a=20 as well
+for array a[][][];
+*(a+i)=a[i]
+*(*(a+i)+j)=a[i][j]..for matrices
+*p++==*(p++)
+(*p)++==a++
+int (*operations[4])(int, int) = {add, sub, mul, divi};
+malloc vs calloc
+Feature	malloc()	calloc()
+Meaning	Memory Allocation	Contiguous Allocation
+Syntax	malloc(total_bytes)	calloc(num_elements, size_of_each)
+Initialization	❌ Doesn’t initialize memory (contains garbage)	✅ Initializes all memory to zero
+Example	malloc(5 * sizeof(int))	calloc(5, sizeof(int))
+//#x//
+whatever passes to the #x it returns the value as string
+//how to arguments as command line arguments//
+#include<stdio.h>
+int main(int argc,char *argv[]){
+        printf("total segmaents are:%d",argc);
+        for(int i=0;i<argc;i++){
+                printf("\nthe %d argument is %s ",i,argv[i]);
+        }
+}
+     
