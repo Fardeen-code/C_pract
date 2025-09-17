@@ -86,6 +86,7 @@ A. The page not needed for the longest future time is replaced. This is theoreti
 
 Q29. Explain the LRU (Least Recently Used) page replacement algorithm.
 A. The page that has not been used for the longest past time is replaced.
+
 Q30. What is the clock page replacement algorithm?
 A. The clock algorithm keeps a circular list of pages with a “hand” pointer. When replacement is needed, it checks each page’s reference bit: if 0, the page is replaced; if 1, the bit is reset to 0 and the hand moves forward. This continues until a page with bit 0 is found and replaced.wikipedia+1
 
@@ -205,6 +206,7 @@ A. Techniques include mapping files, shared memory regions, or devices directly 
 
 Q59. What is memory-mapped I/O?
 A. Memory-mapped I/O allows device control/status registers to be accessed via regular memory reads/writes rather than dedicated instructions.
+
 Q60. Explain memory-mapped files.
 A. Memory-mapped files are files that are mapped into virtual memory, so processes can access file data as if it were part of their primary memory space. This enables faster and simpler file access since data is read and written using normal memory operations, not explicit file I/O calls.geeksforgeeks+2
 
@@ -362,3 +364,13 @@ int main() {
     }
     return 0;
 }
+Process Management
+
+What is process creation in operating systems?
+Process creation is when the operating system makes a new process by copying or starting a program. The new process (child) gets a unique ID, memory, and control information. It starts in the 'New' state, then moves to 'Ready' to run on the CPU. A parent process creates a child process using system calls like fork() in Unix/Linux.
+
+Difference between fork() and exec() system calls?
+
+fork() creates a new child process that is a copy of the parent process. Both run the same program initially.
+
+exec() replaces the current process's program with a new program, loading a different executable. It does not create a new process but changes the current one.
